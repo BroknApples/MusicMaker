@@ -1,0 +1,54 @@
+home screen {
+  create {
+
+  }
+  learn {
+
+  }
+  compete {
+
+  }
+}
+
+GUI Manager {
+  gui groups go in here
+  loop through data, to update, add, etc.
+}
+GUI Group { contains gui elements
+    toolbar gui {
+      elements here
+    }
+    editor GUI {
+      etc.
+    }
+    menu screen gui {
+      choose mode
+    }
+    home screen gui {
+
+    }
+    login screen gui {
+
+    }
+  }
+Gui element {
+  data for each element
+}
+gui elements contain useful program functions {
+  gui.triggered.connect(some function here)
+  gui.triggered will check if some function has been connected, if so, then it will constantly run the updates for the function
+  gui.setdisplay(display_type(instrument_notes, icon, text, input_text), display_info, add more if i need...)
+}
+
+server {
+  collaborate {
+    send editing data to and from clients
+  }
+  user data {
+    use login info to save data
+    save and return a UserData struct that contains user playtime, multiplayer stats, etc.
+  }
+  login checker {
+    ecrypted info
+  }
+}
