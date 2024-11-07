@@ -5,7 +5,7 @@ include(FetchContent)
 set(SFML_VERSION 2.6.1)
 set(IMGUI_VERSION 1.91.2)
 
-# It&#39;s nice to get stripped-down release zips instead of cloning
+# It's nice to get stripped-down release zips instead of cloning
 # a repo and checking out a tag
 FetchContent_Declare(
   SFML

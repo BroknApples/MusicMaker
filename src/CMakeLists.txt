@@ -1,6 +1,8 @@
 # Main
 set(SOURCE_CODE
   main.cpp
+  main_window
+  logger.cpp
 )
 
 add_executable("MusicLab" ${SOURCE_CODE})
