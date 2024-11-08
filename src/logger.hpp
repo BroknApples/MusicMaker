@@ -23,7 +23,7 @@ class Logger {
  public:
   Logger();
 
-  double getTime();
+  double getCurrTime();
 
   void log(LogHeader header, std::string data);
   void printInTerminal();

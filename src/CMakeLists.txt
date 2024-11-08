@@ -1,7 +1,7 @@
 # Main
 set(SOURCE_CODE
   main.cpp
-  main_window
+  main_window.cpp
   logger.cpp
 )
 

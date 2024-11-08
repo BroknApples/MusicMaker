@@ -5,11 +5,12 @@
  */
 void MainWindow::run() {
   // Create a render window
-  sf::RenderWindow window(sf::VideoMode({640, 480}), window_name_);
-  
-  // init
-  init(window);
+  sf::RenderWindow window(sf::VideoMode({width_, height_}), window_name_);
 
+  // init
+  init(&window);
+
+  // TODO: MAKE LOGGER ADD TIME TO THE STRING ITSELF, NOT WHEN IT'S PRINTED
   //////////// test
   //
   //
@@ -17,9 +18,11 @@ void MainWindow::run() {
   sf::CircleShape shape(100.f);
   shape.setFillColor(sf::Color::Green);
 
+  int i = 0;
   sf::Clock deltaClock;
   while (window.isOpen())
   {
+      if (i % 60 == 0) logger_.printInTerminal();
       sf::Event event;
       while (window.pollEvent(event))
       {
@@ -52,12 +55,12 @@ void MainWindow::run() {
 /**
  * @brief initialize all services
  */
-void MainWindow::init(sf::RenderWindow& window) {
+void MainWindow::init(sf::RenderWindow* window) {
   // settings
-  window.setFramerateLimit(60);
+  window->setFramerateLimit(60);
 
   // init services
-  if (!ImGui::SFML::Init(window)) {
+  if (!ImGui::SFML::Init(*window)) {
     logger_.log(DEBUG_LOG, "Could not create window.");
   }
   logger_.log(DEBUG_LOG, "Successfully created window.");

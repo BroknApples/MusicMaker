@@ -4,17 +4,16 @@
  * @brief Default logger
  */
 Logger::Logger() {
-  // allocate default logger space
-  log_.reserve(100);
+  log_.resize(HEADER_COUNT);
   start_time_ = std::chrono::high_resolution_clock::now();
 }
 
 /**
  * @brief get time elapsed since program start
  */
-double Logger::getTime() {
+double Logger::getCurrTime() {
   auto curr_time = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<double> t =  curr_time - start_time_;
+  std::chrono::duration<double> t = curr_time - start_time_;
   double time_elapsed = t.count();
 
   // round to two decimal places
@@ -47,7 +46,7 @@ void Logger::printInTerminal() {
     // print data
     const int kSize = log_[i].size();
     for (int j = 0; j < kSize; j++) {
-      double time = getTime();
+      double time = getCurrTime();
       std::cout << time << ": " << log_[i][j] << std::endl;
     }
   }
